@@ -29,33 +29,26 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
-        <h1>Notes and Posts</h1>
+        <h1>Kyle's Notes and Posts</h1>
         <p>Hi, here is a page where I keep some notes and posts. Enjoy!</p>
       </div>
 
       <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/hero.html#">View details »</a></p>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/hero.html#">View details »</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/hero.html#">View details »</a></p>
-        </div>
-      </div>
+
+      {% for post in site.posts %}
+          {% cycle 'group 1': '<div class="row">', '', '' %}
+          <div class="span4">
+              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+              <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+              <p><a class="btn" href="{{ post.url }}">Read »</a></p>      
+          </div>
+          {% cycle 'group 1': '', '', '</div>' %}
+      {% endfor %}
 
       <hr>
 
       <footer>
-        <p>Thanks for stopping by.</p>
+        <p>Thanks for stopping by!</p>
       </footer>
 
     </div> <!-- /container -->
