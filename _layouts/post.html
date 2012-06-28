@@ -3,5 +3,6 @@ layout: default
 ---
 <div class="hero-unit">
    <h1>{{ page.title }}</h1>
+   {{ post.date | date_to_string }}
    <p>{{ content }}</p>
 </div>
