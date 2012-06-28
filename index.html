@@ -17,5 +17,7 @@ title: Kyle's Blog
               <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
               <p><a class="btn" href="{{ post.url }}">Read »</a></p>      
           </div>
-          {% cycle 'group 1': '', '', '</div>' %}
+          {% cycle 'group 2': '', '', '</div>' %}
       {% endfor %}
+      {% cycle 'group 2': '', '', '</div>' %}
+      {% cycle 'group 2': '', '', '</div>' %}
